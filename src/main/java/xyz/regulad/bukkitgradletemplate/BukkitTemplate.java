@@ -1,6 +1,8 @@
-package xyz.regulad.BukkitTemplate;
+package xyz.regulad.bukkitgradletemplate;
 
+import org.bstats.bukkit.Metrics;
 import org.bukkit.plugin.java.JavaPlugin;
+import org.jetbrains.annotations.NotNull;
 
 /**
  * A template plugin to be used in Minecraft plugins.
@@ -8,6 +10,6 @@ import org.bukkit.plugin.java.JavaPlugin;
 public class BukkitTemplate extends JavaPlugin {
     @Override
     public void onEnable() {
-        this.getLogger().info("Loaded template plugin!");
+        final @NotNull Metrics metrics = new Metrics(this, 13651);
     }
 }

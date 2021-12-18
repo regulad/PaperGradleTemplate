@@ -1,3 +1,3 @@
-# BukkitTemplate
+# BukkitGradleTemplate
 
-A quick template for making shitty plugins.
+A template plugin for Minecraft Paper Plugins with Gradle.
