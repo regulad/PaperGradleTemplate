@@ -44,7 +44,7 @@ tasks {
     }
 
     shadowJar {
-        fun reloc(pkg: String) = relocate(pkg, "xyz.regulad.bukkitgradletemplate.dependency.$pkg")
+        fun reloc(pkg: String) = relocate(pkg, "${rootProject.group}.${rootProject.name}.dependency.$pkg")
 
         reloc("org.bstats")
     }
