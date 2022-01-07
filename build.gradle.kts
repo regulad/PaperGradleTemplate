@@ -9,6 +9,7 @@ plugins {
     id("com.github.johnrengelman.shadow") version "7.1.0"
 }
 
+// fixme
 group = "xyz.regulad"
 version = "1.0.0-SNAPSHOT"
 description = "A template plugin for Minecraft Paper Plugins with Gradle."
@@ -20,6 +21,9 @@ java {
 dependencies {
     paperDevBundle("1.18.1-R0.1-SNAPSHOT")
 
+    compileOnly("org.projectlombok", "lombok", "1.18.22")
+    annotationProcessor("org.projectlombok", "lombok", "1.18.22")
+
     implementation("org.bstats", "bstats-bukkit", "2.2.1")
     compileOnly("org.jetbrains", "annotations", "23.0.0")
 }
@@ -28,6 +32,7 @@ tasks {
     // Configure reobfJar to run when invoking the build task
     build {
         dependsOn(reobfJar)
+        dependsOn(shadowJar)
     }
 
     compileJava {
@@ -71,9 +76,8 @@ publishing {
 */
 
 bukkit {
-    name = "BukkitTemplate"
-    main = "xyz.regulad.bukkitgradletemplate.BukkitTemplate"
+    name = "PaperGradleTemplate" // fixme
+    main = "${rootProject.group}.${rootProject.name}.${name}"
     apiVersion = "1.18"
     authors = listOf("regulad")
-    libraries = listOf("org.jetbrains:annotations:23.0.0")
 }
